@@ -1,0 +1,29 @@
+# DZD Ad Network — local development stack
+# Usage:  docker compose up -d   →  http://localhost:8080
+services:
+  app:
+    build: ./docker
+    container_name: dzd-adserver-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      # Live-mounted so you can edit the code in VS Code and just refresh
+      - ./revive:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.11
+    container_name: dzd-adserver-db
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: dzd_adserver
+      MARIADB_USER: dzd
+      MARIADB_PASSWORD: dzd_pass_2026
+      MARIADB_ROOT_PASSWORD: dzd_root_2026
+    volumes:
+      - dzd_dbdata:/var/lib/mysql
+
+volumes:
+  dzd_dbdata:

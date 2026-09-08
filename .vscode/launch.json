@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DZD: Listen for Xdebug (Apache/Docker)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "path_mappings": {
+                "/var/www/html": "${workspaceFolder}/revive"
+            },
+            "ignore": ["**/vendor/**"]
+        }
+    ]
+}

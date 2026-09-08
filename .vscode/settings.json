@@ -1,0 +1,19 @@
+{
+    "editor.formatOnSave": false,
+    "intelephense.environment.phpVersion": "8.2.0",
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/node_modules/**",
+        "**/vendor/**",
+        "**/revive/lib/vendor/**"
+    ],
+    "search.exclude": {
+        "**/revive/lib/vendor": true,
+        "**/revive/var/cache": true,
+        "**/revive/var/templates_compiled": true
+    },
+    "files.associations": {
+        "*.tpl": "smarty",
+        "*.inc.php": "php"
+    }
+}

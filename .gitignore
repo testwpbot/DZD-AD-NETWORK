@@ -1,0 +1,33 @@
+# ===== DZD Ad Network (Revive Adserver) =====
+
+# Composer dependencies — installed by setup.sh or `docker compose up`
+revive/lib/vendor/
+revive/composer.phar
+
+# Revive runtime / generated files (created by the installer & app)
+revive/var/*.conf.php
+revive/var/INSTALLED
+revive/var/UPGRADE
+revive/var/*.log
+revive/var/*.log.rollback
+revive/var/cache/*
+!revive/var/cache/README.txt
+revive/var/templates_compiled/*
+!revive/var/templates_compiled/.gitkeep
+revive/var/plugins/cache/*
+revive/var/plugins/config/*
+revive/var/plugins/log/*
+revive/var/plugins/recover/*
+revive/www/admin/assets/tinymce/
+revive/www/admin/assets/js/zxcvbn.js*
+revive/www/admin/assets/js/zxcvbn.js.map
+
+# Banner images uploaded through the admin UI
+revive/www/images/*
+!revive/www/images/1x1.gif
+!revive/www/images/robots.txt
+!revive/www/images/layerstyles/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
