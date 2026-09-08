@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================
+   DZD AD NETWORK — Test Publisher Page
+   ============================================================
+   HOW TO USE:
+   1. In the Revive admin panel open your ZONE
+      (Inventory -> Websites -> [your site] -> [your zone])
+   2. Click the "Invocation Code" tab
+   3. Choose "Async JavaScript Tag" (recommended) and copy the code
+   4. Paste it between the  AD SLOT  comments below
+      (replace the dashed placeholder box)
+   5. Open this file in your browser -> your ad appears!
+   6. Click the ad, then check Dashboard stats in the admin panel.
+
+   NOTE: the invocation code Revive gives you will already point to
+   http://localhost:8080/www/delivery/... — that is correct while testing.
+  ============================================================
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DZD Test Publisher — My Demo Website</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f1f4f8; color: #1f2937; line-height: 1.6;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 16px; }
+
+  /* header */
+  header.site {
+    background: linear-gradient(135deg, #0f2a4a, #16529e);
+    color: #fff; padding: 22px 16px;
+  }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 26px; font-weight: 800; letter-spacing: 1px; }
+  .logo span { color: #ffb703; }
+  nav a { color: #dbeafe; text-decoration: none; margin-left: 18px; font-size: 14px; }
+  nav a:hover { color: #ffb703; }
+
+  /* layout */
+  .layout { display: grid; grid-template-columns: 1fr 320px; gap: 20px; margin-top: 20px; }
+  .card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 20px; }
+  .card h2 { margin-bottom: 8px; color: #0f2a4a; }
+  .card p.meta { color: #6b7280; font-size: 13px; margin-bottom: 12px; }
+
+  /* ad slots */
+  .ad {
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    border: 2px dashed #94a3b8; border-radius: 8px;
+    color: #64748b; font-size: 13px; background: #f8fafc;
+    margin: 0 auto 20px; overflow: hidden;
+  }
+  .ad-728x90 { width: 728px; max-width: 100%; height: 90px; }
+  .ad-468x60 { width: 468px; max-width: 100%; height: 60px; }
+  .ad-300x250 { width: 300px; height: 250px; }
+  .ad-label {
+    display:block; font-size: 11px; letter-spacing: 2px;
+    color: #94a3b8; text-transform: uppercase; margin-bottom: 14px;
+  }
+
+  footer { text-align: center; color: #6b7280; font-size: 13px; padding: 24px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo">DZD <span>NEWS</span> DEMO</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Sports</a>
+      <a href="#">Business</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ AD SLOT 1 : HEADER BANNER (728x90) ============
+       Paste the invocation code of your 728x90 zone here.
+       Example of what Revive gives you (yours will differ):
+
+       <ins data-revive-zoneid="1" data-revive-id="aaaa1111bbbb2222">
+       </ins>
+       <script async src="http://localhost:8080/www/delivery/asyncjs.php"></script>
+  -->
+  <span class="ad-label">Advertisement</span>
+  <div class="ad ad-728x90">
+    <!-- PASTE ZONE CODE HERE (728x90) -->
+    Header banner slot — paste your 728×90 zone code here
+    <!-- END ZONE CODE -->
+  </div>
+  <!-- ============ END AD SLOT 1 ============ -->
+
+  <div class="layout">
+    <main>
+      <article class="card">
+        <h2>Welcome to your demo publisher website 📰</h2>
+        <p class="meta">DZD Ad Network · test page</p>
+        <p>This page pretends to be a website owned by one of your publishers.
+           In real life, a website owner copies the <b>invocation code</b> from
+           their zone in your DZD panel and pastes it into their pages — exactly
+           like the slots on this page.</p>
+        <p style="margin-top:10px">When the slot is filled, every page view counts an
+           <b>impression</b> and every ad click is recorded in your Revive
+           dashboard — try it: click the ad a few times, then open
+           <b>Dashboard</b> in the admin panel and watch the numbers.</p>
+      </article>
+
+      <article class="card">
+        <h2>Another article</h2>
+        <p class="meta">DZD Ad Network · test page</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus
+           urna sed urna ultricies ac tempor dui sagittis. Donec at porta sapien.
+           Nulla facilisi. Integer eu arcu vitae nulla pulvinar tristique.</p>
+
+        <!-- ============ AD SLOT 2 : IN-CONTENT (468x60) ============ -->
+        <span class="ad-label">Advertisement</span>
+        <div class="ad ad-468x60" style="margin-bottom:0">
+          <!-- PASTE ZONE CODE HERE (468x60) -->
+          In-content banner slot — paste your 468×60 zone code here
+          <!-- END ZONE CODE -->
+        </div>
+        <!-- ============ END AD SLOT 2 ============ -->
+      </article>
+    </main>
+
+    <aside>
+      <!-- ============ AD SLOT 3 : SIDEBAR (300x250) ============ -->
+      <span class="ad-label">Advertisement</span>
+      <div class="ad ad-300x250">
+        <!-- PASTE ZONE CODE HERE (300x250) -->
+        Sidebar slot — paste your 300×250 zone code here
+        <!-- END ZONE CODE -->
+      </div>
+      <!-- ============ END AD SLOT 3 ============ -->
+
+      <div class="card">
+        <h3>About</h3>
+        <p style="font-size:14px">Demo publisher page for testing the
+           <b>DZD Ad Network</b>. Delete me before going live 😄</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  DZD Ad Network test publisher · served by Revive Adserver at http://localhost:8080
+</footer>
+
+</body>
+</html>
