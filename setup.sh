@@ -69,7 +69,7 @@ echo "[i] Preparing writable directories..."
 mkdir -p var/cache var/templates_compiled \
          var/plugins/cache var/plugins/config \
          var/plugins/log var/plugins/recover var/plugins/DataObjects
-chmod -R 777 var www/images 2>/dev/null || true
+chmod -R 777 var www/images plugins www/admin/plugins 2>/dev/null || true
 
 # The installer refuses to start without this marker file (official release
 # packages ship it; it is deleted automatically once installation completes)
