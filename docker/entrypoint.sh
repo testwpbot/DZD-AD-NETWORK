@@ -12,7 +12,8 @@ mkdir -p var/cache \
          var/plugins/config \
          var/plugins/log \
          var/plugins/recover \
-         var/plugins/DataObjects
+         var/plugins/DataObjects \
+         www/admin/plugins
 
 # Local dev: make sure the web server user can write where Revive needs to
 # (bind mounts from NTFS drives or other uid mismatches otherwise break the
