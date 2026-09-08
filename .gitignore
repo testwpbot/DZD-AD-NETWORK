@@ -5,9 +5,10 @@ revive/lib/vendor/
 revive/composer.phar
 
 # Revive runtime / generated files (created by the installer & app)
+# NOTE: revive/var/UPGRADE is COMMITTED — the installer needs it to start
+# (it is removed automatically when installation completes)
 revive/var/*.conf.php
 revive/var/INSTALLED
-revive/var/UPGRADE
 revive/var/*.log
 revive/var/*.log.rollback
 revive/var/cache/*
