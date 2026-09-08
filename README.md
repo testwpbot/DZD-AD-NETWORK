@@ -91,7 +91,10 @@ VS Code and just refresh the browser.
 git clone https://github.com/testwpbot/DZD-AD-NETWORK.git
 cd DZD-AD-NETWORK
 
-# 2. Run the setup script
+# 2. Switch to the dev branch (skip this after PR #1 is merged into main)
+git checkout arena/01a08174-dzd-ad-network
+
+# 3. Run the setup script
 #    - checks/installs PHP 8.x + required extensions
 #    - installs composer (locally if missing)
 #    - installs Revive's PHP dependencies
