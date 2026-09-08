@@ -25,5 +25,17 @@ services:
     volumes:
       - dzd_dbdata:/var/lib/mysql
 
+  # Public website (Laravel) — http://localhost:8081
+  portal:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.portal
+    container_name: dzd-portal
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    volumes:
+      - ./portal:/var/www/html
+
 volumes:
   dzd_dbdata:

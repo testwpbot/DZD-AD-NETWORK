@@ -133,6 +133,52 @@ Admin panel after install: **http://localhost:8080/www/admin/**
 
 ---
 
+## Public website (`portal/` — Laravel)
+
+The customer-facing DZD Ads site: home, advertisers, publishers, pricing,
+integration guide, contact form (saves leads to the database).
+
+### Run with Docker (recommended)
+
+```bash
+docker compose up -d          # starts ad server (:8080) AND portal (:8081)
+```
+Open **http://localhost:8081** — first boot installs Laravel dependencies
+automatically (a few minutes), then the site is live.
+
+### Run natively (with XAMPP or php -S)
+
+```bash
+cd portal
+php -v                        # needs PHP >= 8.2
+# install composer once: https://getcomposer.org/download/
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan serve             # → http://127.0.0.1:8000
+```
+(SQLite is used by default — no database setup needed. For MySQL, switch
+`DB_CONNECTION=mysql` in `portal/.env` and fill the credentials.)
+
+### Customize
+
+- **Colors/logo/copy:** `portal/resources/views/` (Blade pages) and
+  `portal/public/assets/css/app.css` (design tokens at the top)
+- **Live numbers on the home page:** the `$stats` array at the top of
+  `portal/resources/views/home.blade.php`
+- **Contact email/WhatsApp/links:** `portal/.env` (`DZD_*` variables)
+
+### Contact leads
+
+Form submissions are stored in the `leads` table. View them with:
+```bash
+cd portal
+php artisan tinker
+>>> \App\Models\Lead::latest()->get();
+```
+
+---
+
 ## The installer wizard (what to expect)
 
 1. **Welcome / terms** → continue

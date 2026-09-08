@@ -1,0 +1,33 @@
+# DZD Ad Network — public website (Laravel) runtime image
+# Same PHP 8.2 + extensions + composer as the ad server image,
+# but Apache serves Laravel's /public directory.
+FROM php:8.2-apache
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libzip-dev \
+        libpng-dev \
+        libjpeg62-turbo-dev \
+        libfreetype6-dev \
+        libicu-dev \
+        libonig-dev \
+        libxml2-dev \
+        libcurl4-openssl-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j"$(nproc)" \
+        gd intl mysqli zip mbstring xml curl opcache
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Serve the Laravel public/ directory
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+        /etc/apache2/sites-available/*.conf /etc/apache2/apache2.conf
+
+COPY portal-entrypoint.sh /usr/local/bin/portal-entrypoint
+RUN chmod +x /usr/local/bin/portal-entrypoint
+
+WORKDIR /var/www/html
+
+ENTRYPOINT ["portal-entrypoint"]
+CMD ["apache2-foreground"]
